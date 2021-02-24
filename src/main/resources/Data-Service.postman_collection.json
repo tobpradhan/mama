@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "893da62e-68a1-40d6-b2ae-9ca8773061c6",
+		"name": "Data-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.sendRequest({\r",
+							"        url: 'http://localhost:8080/api/save/record',\r",
+							"        method: 'POST',\r",
+							"        header: 'Content-Type:application/json',\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: '{\"model\":\"bibhuti\"}'\r",
+							"        }\r",
+							"    }, function(err, res) {\r",
+							"        console.log(res);\r",
+							"    });\r",
+							"pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"model\":\"data\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/save/record",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"save",
+						"record"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
